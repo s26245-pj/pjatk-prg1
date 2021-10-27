@@ -3,7 +3,12 @@
 auto main() -> int
 
 {
-    for (auto i = 1; i<=100; i++)
+    int n;
+    std::cout << "Enter the amount of numbers: ";
+    std::cin >> n;
+
+
+    for (auto i = 1; i<=n; i++)
     {
     if ((i%3==0 && i%5==0))
     {
@@ -20,3 +25,4 @@ auto main() -> int
     }
     return 0;
 }
+
