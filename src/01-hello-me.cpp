@@ -1,7 +1,7 @@
 #include <iostream>
 
-auto main() -> int
+auto main()->int
 {
-    std::cout << "Hello, Michal!\n";
-    return 0;
+   std::cout<<"Hello, Michal!\n";
+   return 0;
 }
