@@ -1,16 +1,21 @@
 #include <iostream>
 #include <string>
 
-std::string password;
-auto main() ->int
-{
-    do
-    {
-    std::cout << "Password:";
-    std::cin >> password;
-    }
-    while(password! = "student");
-    std::cout << "Password is correct!";
-    return 0;
-}
 
+auto ask_user_for_password(std::string prompt) -> std::string
+{
+   auto line = std::string{};
+   std::cout << prompt;
+   std::getline(std::cin, line);
+   return line;
+}
+   
+auto main(int, char* argv[]) -> int
+{  
+   auto a = ask_user_for_password("password: ");
+   while (a != argv[1]){
+   a = ask_user_for_password("password: ");   
+   }
+   
+   return 0;
+}
