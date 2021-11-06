@@ -2,10 +2,16 @@
 #include <cstdlib>
 #include <ctime>
 
-int number, guess;
-auto main() -> int
-
+auto ask_user_for_integer(std::string prompt) -> int
 {
+
+}
+
+
+
+auto main() -> int
+{
+    int guess, number; 
     srand(time(NULL));
     number = rand()%100+1;
     std::cout << "Guess the number from 1 to 100: ";
