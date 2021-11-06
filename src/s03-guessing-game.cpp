@@ -14,11 +14,11 @@ auto main() -> int
 {
      std::cin >> guess;
 
-    if (number==guess)
+    if (number == guess)
     {std::cout <<"That's right, you won!" << "\n";
-    }else if (guess>number)
+    }else if (guess > number)
     {std::cout << "Too big, try again " << "\n";
-    }else if (guess<number)
+    }else if (guess < number)
     {std::cout << "Too small, try again " <<"\n";
     }
 }
