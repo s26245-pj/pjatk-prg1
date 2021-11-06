@@ -9,7 +9,7 @@ auto main() ->int
     std::cout << "Password:";
     std::cin >> password;
     }
-    while(password!="student");
+    while(password! = "student");
     std::cout << "Password is correct!";
     return 0;
 }
