@@ -13,6 +13,8 @@ auto main() -> int
 {
    auto const a = ask_user_for_integer("a=");
    auto const b = ask_user_for_integer("b=");
+   if (b == 0)
+   std::cout << "We do not divide by 0!" << "\n";
    std::cout << (a / b) << "\n";
    return 0;
 }
