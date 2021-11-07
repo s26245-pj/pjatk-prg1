@@ -14,9 +14,12 @@ auto main(int, char* argv[]) -> int
 {  
    auto a = ask_user_for_password("password: ");
    while (a != argv[1]){
-   a = ask_user_for_password("password: ");   
+   a = ask_user_for_password("password: ");
+   if (a != argv[1])
+   std::cout << "Password incorrect!" << "\n";
+   else
+   std::cout << "Password correct!" << "\n";
    }
-   std::cout << "Password correct!\n";
-
+  
    return 0;
 }
