@@ -16,6 +16,7 @@ auto main(int, char* argv[]) -> int
    while (a != argv[1]){
    a = ask_user_for_password("password: ");   
    }
-   
+   std::cout << "Password correct!\n";
+
    return 0;
 }
