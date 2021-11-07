@@ -1,12 +1,16 @@
 #include <iostream>
 
-auto main() -> int
+auto ask_user_for_integer(std::string prompt) -> int
+{
+   std::cout << prompt << "Enter the amount of numbers: ";
+   auto amount_of_numbers = std::string{};
+   std::getline(std::cin, amount_of_numbers);
+   return std::stoi(amount_of_numbers); 
+}
+
+auto main(int argc, char* argv[]) -> int
 
 {
-    int n;
-    std::cout << "Enter the amount of numbers: ";
-    std::cin >> n;
-
 
     for (auto i = 1; i<=n; i++)
     {
