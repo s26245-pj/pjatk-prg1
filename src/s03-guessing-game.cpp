@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <random>
+#include <cstring>
 
 auto ask_user_for_integer(std::string prompt) -> int
 {
@@ -12,22 +12,22 @@ auto ask_user_for_integer(std::string prompt) -> int
 
 auto main() -> int
 {
-    int number;
-    srand(time(NULL));
-    number = rand()%100+1;
-    auto a = ask_user_for_integer("Guess number from 1 to 100: ");
+    auto rnd = std::random_device{};
+    auto d = std::uniform_int_distribution<int>{1, 100};
+    auto number = d(rnd); 
+    auto guess = ask_user_for_integer("Guess number from 1 to 100: ");
+  
+    while (guess != number){
+    if (guess < number)
+    std::cout <<"Too small. try again!\n";
+    else if (guess > number)
+    std::cout << "Too big, try again\n";
 
-    while (a != number){
-    a = ask_user_for_integer("Guess number from 1 to 100: ");   
-    if (number == a)
-    std::cout <<"That's right, you won!" << "\n";
-    else if (a > number)
-    std::cout << "Too big, try again " << "\n";
-    else if (a < number)
-    std::cout << "Too small, try again " <<"\n";
+    guess = ask_user_for_integer("Guess number from 1 to 100: ");
     }
-   
 
+    std::cout << "That's right, you won!\n";
+    
     return 0;
 }
 
