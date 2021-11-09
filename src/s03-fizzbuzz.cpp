@@ -11,6 +11,8 @@ auto main(int, char* argv[]) -> int
        std::cout << i << " Fizz\n";
      else if (i % 5 == 0)    
        std::cout << i << " Buzz\n"; 
+     else 
+       std::cout << i << "\n";
    }
    return 0;
 }
