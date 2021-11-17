@@ -96,13 +96,13 @@ auto evaluate_square(std::stack<double> &stack) -> void
    stack.push(sqrt(a));
 }
 
-auto evaluate_logarithm(std::stack<double> &stack) -> void //returns the natural logarithm of a
+auto evaluate_logarithm(std::stack<double> &stack) -> void //returns the common logarithm of a
 {
    if (stack.size() < 1) {
       throw std::logic_error{"not enough operands for log"};
    }
    auto const a = pop_top(stack);
-   stack.push(log(a));
+   stack.push(log10(a));
 }
 
 auto make_args(int argc, char *argv[]) -> std::vector<std::string>
