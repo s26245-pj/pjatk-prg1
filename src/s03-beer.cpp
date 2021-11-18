@@ -26,5 +26,6 @@ auto main(int argc, char* argv[]) -> int
              << "no more bottles of beer\n"
              << "Go to the store and buy some more\n"
              << bottle_count << " bottles of beer on the wall...\n";
+
    return 0;
 }
