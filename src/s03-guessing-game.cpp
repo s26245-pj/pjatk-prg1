@@ -15,7 +15,7 @@ auto main() -> int
   auto attempt = 1;
   auto rnd = std::random_device{};
   auto d = std::uniform_int_distribution<int>{1, 100};
-  auto number = d(rnd);
+  auto const number = d(rnd);
   auto guess = ask_user_for_integer("Guess number from 1 to 100: ");
 
   while (guess != number) {
