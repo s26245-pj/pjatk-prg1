@@ -16,7 +16,8 @@ auto main(int argc, char* argv[]) -> int
    for (auto i = bottle_count; i > 1; i--){
       std::cout << i << " bottles of beer on the wall\n"
                 << i << " bottles of beer\n"
-                << "take one down, pass it around\n";  
+                << "take one down, pass it around\n"
+                << i - 1 << " bottles of beer on the wall\n";  
    }
       
    std::cout << "1 bottle of beer on the wall\n"
