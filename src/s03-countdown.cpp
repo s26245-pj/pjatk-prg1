@@ -5,7 +5,7 @@
 
 auto main(int, char *argv[]) -> int
 {
-   auto x = std::string{argv[1]};
+   auto const x = std::string{argv[1]};
    int begin = std::stoi(x);
 
    if (begin == 0){
