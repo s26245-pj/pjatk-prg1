@@ -13,7 +13,7 @@ auto ask_user_for_integer(std::string prompt) -> int
 auto main() -> int
 {
   auto attempt = 1;
-  auto rnd = std::random_device{};
+  auto const rnd = std::random_device{};
   auto d = std::uniform_int_distribution<int>{1, 100};
   auto const number = d(rnd);
   auto guess = ask_user_for_integer("Guess number from 1 to 100: ");
