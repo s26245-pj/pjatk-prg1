@@ -1,17 +1,19 @@
 #include <iostream>
+#include <string>
 
 struct student {
-   std::string const student_name;
-   std::string const student_surname;
-   std::string const index_number;
+   std::string student_name;
+   std::string student_surname;
+   std::string index_number;
    float grades_average; 
    
-   auto to_string() const -> std::string;
-};
-
+} my_details;
 
 
 auto main() -> int
 {
-   std::cout << student::to_string << "\n";
+   my_details.student_name = "Michał";
+   my_details.student_surname = "Jastrzemski";
+   my_details.index_number = "s26245";
+
 }
