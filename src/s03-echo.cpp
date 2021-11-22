@@ -1,49 +1,54 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <iterator>
 
-
-auto main(int argc, char* argv[]) -> int
+auto main(int argc, char *argv[]) -> int 
 {
-   std::string L = "-l";
-   std::string R = "-r";
-   std::string N = "-n";
-   auto args = std::vector<std::string>{};
-   std::copy_n(argv, argc, std::back_inserter(args));
-      
-   if (std::find(args.begin(), args.end(), R) != args.end()){
-      for (auto i = 1; i < argc; i++) {
-         std::copy_n(argv, argc, std::back_inserter(args));         
-         std::reverse(args.begin(), args.end());
-         std::cout << args[i] << " ";   
-      }
-      std::cout << "\n";
-   }
+  if (argc == 1) {
+    return 0;
+  }
 
-   if (std::find(args.begin(), args.end(), L) != args.end()){
-      for (auto i = 1; i < argc; i++) {
-         std::copy_n(argv, argc, std::back_inserter(args));
-         std::cout << args[i] << "\n";   
-      }
-   }
+  auto separator = " ";
+  auto reverse = false;
+  auto newline = true;
 
-   if (std::find(args.begin(), args.end(), N) != args.end()){
-      for (auto i = 1; i < argc; i++) {
-         std::copy_n(argv, argc, std::back_inserter(args));
-         std::cout << args[i] << " ";   
-      }
-   }
+  auto const OPT_SEPARATOR = std::string{"-l"};
+  auto const OPT_REVERSE = std::string{"-r"};
+  auto const OPT_NEWLINE = std::string{"-n"};
 
-   else {
-      for (auto i = 1; i < argc; i++) {
-         std::cout << args[i] << " ";   
+  auto args_to_print = std::vector<std::string>{};
+  {
+    auto i = 1;
+    for (; i < argc; i++) {
+      if (argv[i] == OPT_SEPARATOR) {
+        separator = "\n";
+      } else if (argv[i] == OPT_REVERSE) {
+        reverse = true;
+      } else if (argv[i] == OPT_NEWLINE) {
+        newline = false;
+      } else {
+        break;
       }
-      std::cout << "\n";
-   }  
-   
-   return 0;
+    }
+    std::copy(argv + i, argv + argc, std::back_inserter(args_to_print));
+  }
+
+  static_cast<void>(reverse);
+  static_cast<void>(newline);
+
+  if (reverse) {
+    std::reverse(args_to_print.begin(), args_to_print.end());
+  }
+
+  std::cout << args_to_print[0];
+  for (auto i = size_t{1}; i < args_to_print.size(); ++i) {
+    std::cout << separator << args_to_print[i];
+  }
+
+  if (newline) {
+    std::cout << "\n";
+  }
+
+  return 0;
 }
-
-
