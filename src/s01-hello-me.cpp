@@ -2,6 +2,7 @@
 
 auto main() -> int 
 {
-  std::cout << "Hello, Michał!\n";
+  std::cout << "Hello, Michał Jastrzemski!\n";
+
   return 0;
 }
