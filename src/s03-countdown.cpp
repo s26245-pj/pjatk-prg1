@@ -12,7 +12,7 @@ auto main(int, char *argv[]) -> int
       std::cout << "There's nothing to count...\n"; 
       return 1;
    }
-   else if (begin < 0){
+   if (begin < 0){
       std::cerr << "I can't do that...\n";
       return 2;
    }
@@ -21,5 +21,6 @@ auto main(int, char *argv[]) -> int
       std::this_thread::sleep_for(std::chrono::milliseconds{1000});
       std::cout << i << "\n";
    }
+
    return 0;
 }
