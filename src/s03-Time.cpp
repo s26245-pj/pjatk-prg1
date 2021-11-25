@@ -59,7 +59,7 @@ auto Time::next_second() -> void
    } else {
       next_minute();
       second = 0;
-   };
+   }
 }
 
 
