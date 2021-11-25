@@ -23,8 +23,22 @@ struct Time
    auto next_hour() -> void;
    auto next_minute() -> void;
    auto next_second() -> void;
-  
+   auto count_seconds () const -> uint64_t ;
+   auto count_minutes () const -> uint64_t ;
+   auto time_to_midnight () const -> Time ;
+
+
+   auto operator + (Time const &) const -> Time ;
+   auto operator - (Time const &) const -> Time ;
+   auto operator < (Time const &) const -> bool ;
+   auto operator > (Time const &) const -> bool ;
+   auto operator == (Time const &) const -> bool ;
+   auto operator != (Time const &) const -> bool ;
+   
+   Time(int hour, int minute, int second);
 };
+
+Time::Time(int Hour, int Min, int Sec) : hour{Hour}, minute{Min}, second{Sec} {}
 
 auto Time::to_string() const -> std::string
 {
@@ -102,19 +116,18 @@ auto Time::to_string(Time_of_day n) -> std::string
 
 auto main () -> int
 {
-   Time time;
-   time.hour = 23;
-   time.minute = 59;
-   time.second = 59;
+   auto time = Time{23, 59, 59};
+   auto newtime = Time{20, 30, 25};
 
    std::cout << time.to_string() << "\n" ;
    time.next_hour();
-   std::cout << time.to_string() << "\n" ;
+   std::cout << time.to_string() << " one hour later..." << "\n" ;
    time.next_minute();
-   std::cout << time.to_string() << "\n" ;
+   std::cout << time.to_string() << " one minute later.." <<"\n" ;
    time.next_second();
-   std::cout << time.to_string() << "\n" ;
-   std::cout << time.to_string(time.time_of_day()) << "\n";
-
+   std::cout << time.to_string() << " one second later.." << "\n";
+   std::cout << "Day Time: " << time.to_string(time.time_of_day()) << "\n";
+   std::cout << newtime.to_string() << "\n";
+  
    return 0;       
 }
