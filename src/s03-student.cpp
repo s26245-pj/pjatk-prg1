@@ -9,9 +9,10 @@ struct Student
    const std::string index_number;
    int current_semester;
    float grades_average; 
-   auto to_string() const -> std::string;      
 
+   auto to_string() const -> std::string;      
 };
+
 
 auto Student::to_string() const -> std::string 
 {
