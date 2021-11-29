@@ -46,7 +46,7 @@ auto Time::next_minute() -> void
 auto Time::next_second() -> void
 { 
    if (second < 59){
-      minute ++;
+      second ++;
    } else {
       next_minute();
       second = 0;
